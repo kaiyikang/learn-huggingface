@@ -14,6 +14,14 @@ docker pull huggingface/transformers-pytorch-cpu
 
 ## 2. Run container
 
+Run first:
+
 ```bash
-docker run -it -v ${pwd}:/workspace huggingface/transformers-pytorch-cpu
+docker run --name huggingface -it -v ${pwd}:/workspace huggingface/transformers-pytorch-cpu
+```
+
+Run again:
+
+```bash
+docker start huggingface
 ```
