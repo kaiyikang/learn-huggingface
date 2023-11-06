@@ -80,4 +80,4 @@ if __name__ == "__main__":
     # outputs = model_classification(inputs=inputs)
 
     # Post Processing
-    # post_processing(outputs=outputs)
+    post_processing(outputs=outputs)
