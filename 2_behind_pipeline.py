@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     # Model
     model_hidden_state(inputs=inputs)
-    # outputs = model_classification(inputs=inputs)
+    outputs = model_classification(inputs=inputs)
 
     # Post Processing
     post_processing(outputs=outputs)
