@@ -1,7 +1,7 @@
 # """
 # Tokenizer: text -> number 
 # """
-from transformers import BertTokenizer
+from transformers import BertTokenizer, AutoTokenizer
 
 def based_on_word():
     """
@@ -30,11 +30,21 @@ def based_on_subword():
         - frequently used words should not be split into smaller subwords
         - rare words should be decomposed into meaningful subwords
     """
+    pass
 
-    tokenizer = BertTokenizer.from_pretrained("bert-base-cased")
+def encode():
+    tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
+    sequence = "Using a Transformer network is simple! Geschwindigkeitsbegrenzung!"
+    tokens = tokenizer.tokenize(sequence)
+    print(f"====== Token ====== \n{tokens}")
+    ids = tokenizer.convert_tokens_to_ids(tokens)
+    print(f"====== IDs ====== \n{ids}")
+    decoded_string = tokenizer.decode(ids)
+    print(f"====== Decoded string ====== \n{decoded_string}")
 
 
 if __name__ == "__main__":
     # based_on_word()
     # based_on_char()
-    based_on_subword()
+    # based_on_subword()
+    encode()
