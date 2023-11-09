@@ -4,6 +4,12 @@ from pprint import pprint as print
 """
 Default Download Path:
     /root/.cache/huggingface/transformers
+
+| Model	            | Examples	                             | Tasks
+| Encoder           | ALBERT,BERT,DistilBERT,ELECTRA,RoBERTa | Sentence classification, named entity recognition, extractive question answering 
+| Decoder           | CTRL, GPT, GPT-2, Transformer XL       | Text generation
+| Encoder-decoder   | BART, T5, Marian, mBART                | Summarization, translation, generative question answering
+
 """
 
 def sentiment_analysis():
@@ -42,9 +48,9 @@ def named_entity_recognition():
     return ner("My name is Kang and I work at Valtech_Mobility in Munich.")
 
 if __name__ == "__main__":
-    # print(sentiment_analysis())
-    # print(zero_shot_classification())
-    # print(zero_shot_classification())
-    # print(text_generation())
-    # print(make_filling())
+    print(sentiment_analysis())
+    print(zero_shot_classification())
+    print(zero_shot_classification())
+    print(text_generation())
+    print(make_filling())
     print(named_entity_recognition())
