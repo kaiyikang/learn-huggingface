@@ -4,7 +4,7 @@ from transformers import AutoTokenizer
 checkpoint = "distilbert-base-uncased-finetuned-sst-2-english"
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
-sequences = ["I've been waiting for this session course my whole life.", "Ich bin auch!" ]
+sequences = ["I've been waiting for this session my whole life.", "Ich bin auch!" ]
 
 
 def get_model_inputs():
@@ -24,7 +24,7 @@ def get_model_inputs():
     print(model_inputs)
 
 def special_tokens():
-    sequence = "I've been waiting for the session my whole life."
+    sequence = sequences[0]
 
     model_inputs = tokenizer(sequence)
     print(model_inputs["input_ids"])
@@ -39,23 +39,22 @@ def special_tokens():
 
     """
     Model was pretrained.
-    Some models don’t add special words   
+    Some models don't add special words   
     """
 
 def run():
-    import torch
+    # import torch
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
     checkpoint = "distilbert-base-uncased-finetuned-sst-2-english"
-    # tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
     model = AutoModelForSequenceClassification.from_pretrained(checkpoint)
-    sequences = ["I've been waiting for a HuggingFace course my whole life.", "So have I!"]
 
     tokens = tokenizer(sequences, padding=True, truncation=True, return_tensors="pt")
     output = model(**tokens)
     print(output)
 
 if __name__ == "__main__":
-    # get_model_inputs()
+    get_model_inputs()
     # special_tokens()
-    run()
+    # run()

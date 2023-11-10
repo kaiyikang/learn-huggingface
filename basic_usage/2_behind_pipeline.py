@@ -25,6 +25,7 @@ def tokenize():
         truncation=True,
         return_tensors="pt" # pt=Pytorch, tf=TensorFlow, np=Numpy
         )
+    
     return inputs
 
 def model_hidden_state(inputs):
@@ -33,7 +34,7 @@ def model_hidden_state(inputs):
     It contains only the base Transformer module.
     output:[batch_size, sequence_length, hidden_size]
         - batch_size: The number of sequences processed at a time (2)
-        - sequence_length: The length of the numerical representation of the sequence (16)
+        - sequence_length: The length of the numerical representation of the sequence (14)
         - hidden_size: The vector dimension of each model input.(768 or more 3072)
     hidden -> high dimension
     """
@@ -76,7 +77,7 @@ if __name__ == "__main__":
     inputs = tokenize()
 
     # Model
-    model_hidden_state(inputs=inputs)
+    # model_hidden_state(inputs=inputs)
     outputs = model_classification(inputs=inputs)
 
     # Post Processing

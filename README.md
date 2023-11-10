@@ -1,6 +1,7 @@
 # learn-huggingface
 
-The Repo used to learn about huggingface.
+The Repo used to learn about Huggingface.
+Source: https://huggingface.co/learn/nlp-course
 
 # Usage
 

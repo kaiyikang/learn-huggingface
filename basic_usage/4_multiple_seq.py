@@ -60,8 +60,8 @@ def attention_masks():
     print(outputs.logits)
 
 if __name__ == "__main__":
-    # expect_batch_inputs()
+    expect_batch_inputs()
     # view_tokenizer()
     # add_new_dimension()
     # fix_padding_issues()
-    attention_masks()
+    # attention_masks()
