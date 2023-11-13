@@ -43,25 +43,32 @@ trainer = Trainer(
 ##############
 # Evaluation #
 ##############
-# predictions = trainer.predict(tokenized_datasets["validation"])
-# # 408 being the number of elements 
-# print(predictions.predictions.shape, predictions.label_ids.shape)
 
-# # take the index with the maximum value on the second axis
-# preds = np.argmax(predictions.predictions, axis=-1)
+# 408 being the number of elements 
+predictions = trainer.predict(tokenized_datasets["validation"])
+print(predictions.predictions.shape, predictions.label_ids.shape)
 
-# print(preds)
+# take the index with the maximum value on the second axis
+preds = np.argmax(predictions.predictions, axis=-1)
+print(preds)
 
-# metric = evaluate.load("glue", "mrpc")
-# result = metric.compute(predictions=preds, references=predictions.label_ids)
+metric = evaluate.load("glue", "mrpc")
+result = metric.compute(predictions=preds, references=predictions.label_ids)
+print(result)
 
-# print(result)
+# to report metrics at the end of each epoch
+# def compute_metrics(eval_preds):
+#     metric = evaluate.load("glue", "mrpc")
+#     logits, labels = eval_preds
+#     predictions = np.argmax(logits, axis=-1)
+#     return metric.compute(predictions=predictions, references=labels)
 
-def compute_metrics(eval_preds): # eval_preds = trainer.predict(tokenized_datasets["validation"])
-    logits, label_ids = eval_preds
-
-    metric = evaluate.load("glue", "mrpc")
-    predictions = np.argmax(logits, axis=-1)
-    return metric.compute(predictions=predictions, references=label_ids)
-
-print(compute_metrics(eval_preds=trainer.predict(tokenized_datasets["validation"])))
+# trainer = Trainer(
+#     model,
+#     training_args,
+#     train_dataset=tokenized_datasets["train"],
+#     eval_dataset=tokenized_datasets["validation"],
+#     data_collator=data_collator,
+#     tokenizer=tokenizer,
+#     compute_metrics=compute_metrics,
+# )

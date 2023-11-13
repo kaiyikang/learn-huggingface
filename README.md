@@ -13,15 +13,15 @@ I use transformers-cpu version.
 docker pull huggingface/transformers-pytorch-cpu
 ```
 
-## 2. Run container
-
-Run first:
+## 2. Run Dockerfile
 
 ```bash
-docker run --name hf -it -v "$(pwd)":/workspace huggingface/transformers-pytorch-cpu
-```
-Restart the container:
+# Build Image
+docker build --tag huggingface .
 
-```bash
+# Run the huggingface
+docker run --name hf -it -v "$(pwd)":/app huggingface
+
+# Re/start the container
 docker start -i hf
-```
+```****
