@@ -49,8 +49,13 @@ def named_entity_recognition():
 
 if __name__ == "__main__":
     print(sentiment_analysis())
+    print("======")
     print(zero_shot_classification())
+    print("======")
     print(zero_shot_classification())
+    print("======")
     print(text_generation())
+    print("======")
     print(make_filling())
+    print("======")
     print(named_entity_recognition())
